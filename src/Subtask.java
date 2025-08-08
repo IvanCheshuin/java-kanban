@@ -1,3 +1,5 @@
+package task;
+
 public class Subtask extends Task {
     private int epicId;
 
@@ -12,6 +14,7 @@ public class Subtask extends Task {
 
     @Override
     public String toString() {
-        return String.format("Subtask{id=%d, name='%s', status=%s, epicId=%d}", id, name, status, epicId);
+        return String.format("Subtask{id=%d, name='%s', status=%s, epicId=%d}",
+                getId(), getName(), getStatus(), epicId);
     }
 }

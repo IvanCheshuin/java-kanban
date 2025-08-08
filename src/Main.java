@@ -1,3 +1,9 @@
+import manager.TaskManager;
+import task.Task;
+import task.Epic;
+import task.Subtask;
+import task.Status;
+
 public class Main {
     public static void main(String[] args) {
         TaskManager manager = new TaskManager();
@@ -5,24 +11,25 @@ public class Main {
         // Создаём обычные задачи
         Task task1 = new Task("Переезд", "Собрать вещи", 0, Status.NEW);
         Task task2 = new Task("Покупка мебели", "Выбрать стол", 0, Status.IN_PROGRESS);
-        manager.createTask(task1);
-        manager.createTask(task2);
+        task1 = manager.createTask(task1);
+        task2 = manager.createTask(task2);
 
         // Эпик 1 с двумя подзадачами
         Epic epic1 = new Epic("Организовать праздник", "Юбилей", 0);
-        manager.createEpic(epic1);
+        epic1 = manager.createEpic(epic1); // Получаем актуальный id
 
         Subtask sub1 = new Subtask("Заказать еду", "Выбрать меню", 0, Status.NEW, epic1.getId());
         Subtask sub2 = new Subtask("Арендовать зал", "Выбрать место", 0, Status.NEW, epic1.getId());
-        manager.createSubtask(sub1);
-        manager.createSubtask(sub2);
+        sub1 = manager.createSubtask(sub1);
+        sub2 = manager.createSubtask(sub2);
 
         // Эпик 2 с одной подзадачей
         Epic epic2 = new Epic("Продажа квартиры", "Сделка", 0);
-        manager.createEpic(epic2);
+        epic2 = manager.createEpic(epic2);
 
-        Subtask sub3 = new Subtask("Найти покупателя", "Разместить объявление", 0, Status.DONE, epic2.getId());
-        manager.createSubtask(sub3);
+        Subtask sub3 = new Subtask("Найти покупателя", "Разместить объявление", 0,
+                Status.DONE, epic2.getId());
+        sub3 = manager.createSubtask(sub3);
 
         // Печать всех задач
         System.out.println("\n=== Задачи ===");

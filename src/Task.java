@@ -1,8 +1,10 @@
+package task;
+
 public class Task {
-    protected String name;
-    protected String description;
-    protected int id;
-    protected Status status;
+    private String name;
+    private String description;
+    private int id;
+    private Status status;
 
     public Task(String name, String description, int id, Status status) {
         this.name = name;
@@ -11,14 +13,38 @@ public class Task {
         this.status = status;
     }
 
-    public String getName() { return name; }
-    public String getDescription() { return description; }
-    public int getId() { return id; }
-    public Status getStatus() { return status; }
+    public String getName() {
+        return name;
+    }
 
-    public void setName(String name) { this.name = name; }
-    public void setDescription(String description) { this.description = description; }
-    public void setStatus(Status status) { this.status = status; }
+    public String getDescription() {
+        return description;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    // Сеттер id с package-private доступом (не public!)
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 
     @Override
     public boolean equals(Object o) {
